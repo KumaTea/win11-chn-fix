@@ -20,9 +20,9 @@ This fix is an implement of
 
 1. **Add Chinese** <br> From the **Settings** App, in `Time & Language` - `Language` - `Preferred languages`, click `Add a language`, select `中文（中华人民共和国） / Chinese (Simplified, China)` (zh-CN in this case, or other variations if you need), and click `Next`.
 
-2. **Install the language** <br> Check only `Install language pack`, and click `Install`, then wait for complete.
+2. **Install the language** <br> Check only `Install language pack`, and click `Install`, then wait for completion.
 
-3. **Download the fix** <br> Download the [**fix.zip**](https://github.com/KumaTea/win11-chn-fix/releases/download/v1.0/fix.zip) archive from the [release](https://github.com/KumaTea/win11-chn-fix/releases) page, extract it to wherever.
+3. **Download the fix** <br> Download the [**fix.zip**](https://github.com/KumaTea/win11-chn-fix/releases/download/v1.0/fix.zip) archive from the [release](https://github.com/KumaTea/win11-chn-fix/releases) page, extract it wherever.
 
 4. **Apply the fix** <br> Either: <br> * copy both `CHS` and `CHT` to `C:\Windows\InputMethod\` <br> * run the `run.bat` script.
 
@@ -34,6 +34,26 @@ This fix is an implement of
 
 3. **下载文件** <br> 从 [release](https://github.com/KumaTea/win11-chn-fix/releases) 页面下载 [**fix.zip**](https://github.com/KumaTea/win11-chn-fix/releases/download/v1.0/fix.zip), 解压到任意位置。
 
-4. **修复系统** <br> 任选其一: <br> * 复制 `CHS` 和 `CHT` 到 `C:\Windows\InputMethod\` <br> * 运行脚本 `run.bat` 。
+4. **修复系统** <br> 任选其一： <br> * 复制 `CHS` 和 `CHT` 到 `C:\Windows\InputMethod\` <br> * 运行脚本 `run.bat` 。
 
 ![Patching](img/patch.png)
+
+## How does it work 原理
+
+We found that in the directory
+`C:\Windows\InputMethod`,
+both `CHS` and `CHT` are empty,
+while in Windows 10 they contain ~ 50 MB files.
+
+So [this script](run.bat) copies files in Windows 10 to the corresponding location,
+and surprisingly finds this trick works.
+
+---
+
+我们观察到目录
+`C:\Windows\InputMethod` 中，
+`CHS` 和 `CHT` 均为空文件夹，
+而 Windows 10 的相应位置包含了约 50MB 文件。
+
+[这个脚本](run.bat) 从 Windows 10 中复制文件到相应位置，
+并十分惊喜地发现这个方案奏效。
